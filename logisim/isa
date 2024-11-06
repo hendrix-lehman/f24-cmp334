@@ -1,0 +1,22 @@
+
+ISA 4 bits 
+
+add valA (0000), valB (0000), reg0 [where to store the result] 
+
+
+valA: can be a register or it can be constant binary value
+valB: can be a register or it can be constant binary value
+reg0: register to store result
+
+
+binary:
+0 0000 0000 reg0(0000)
+
+
+and
+
+or
+
+xor
+
+
