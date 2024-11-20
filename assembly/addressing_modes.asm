@@ -12,11 +12,16 @@ __start:  				# execution starts here
 
 
 # R-type (Register addressing)
-	li $t1, 4
-	# 00000000 00000000 00000000 00000100  before (register $t1)
+	# li $t1, 4 # value is in decimal
+	li $t1, 0x80000004 # value in hex
+	# li $t1, 10000000000000000000000000000100 # value in binary
+	# 10000000 00000000 00000000 00000100  before (register $t1)
 	sll $t0, $t1, 1	
 	# 00000000 00000000 00000000 00001000  after (register $t0)
 
+	srl $t2, $t1, 1
+	# 01000000 00000000 00000000 00000010  changed original value 0x40000002
+	
 	srl $t2, $t0, 1
 	# 00000000 00000000 00000000 00000100  back to original value (register $t2)
 	
@@ -53,8 +58,11 @@ _print:
 
 # Data Segment
 	.data 
+	
 hello:	.asciiz "Hello, world!"	
+bag:	.space 8
 num: 	.word 2
+
 
 
 # end of addressing_modes.asm	
